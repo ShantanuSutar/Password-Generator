@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useGeneratePassword from "./hooks/useGeneratePassword";
 import StrengthChecker from "./components/StrengthChecker";
+import Checkbox from "./components/Checkbox";
 
 function App() {
   const [length, setLength] = useState(6);
@@ -60,14 +61,12 @@ function App() {
       <div className="checkboxes">
         {checkBoxData.map((checkbox, index) => {
           return (
-            <div key={index}>
-              <input
-                type="checkbox"
-                checked={checkbox.checked}
-                onChange={() => handleChangeCheckbox(index)}
-              />
-              <label>{checkbox.title}</label>
-            </div>
+            <Checkbox
+              key={index}
+              state={checkbox.checked}
+              onChange={() => handleChangeCheckbox(index)}
+              title={checkbox.title}
+            />
           );
         })}
       </div>
