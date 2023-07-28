@@ -57,6 +57,7 @@ function App() {
           );
         })}
       </div>
+      {error && <div className="error">{error}</div>}
       <button
         className="generateBtn"
         onClick={() => generatePassword(checkBoxData, length)}
