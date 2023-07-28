@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function App() {
+  const [length, setLength] = useState(6);
+
   const checkBoxData = [
     { title: "Uppercase", checked: true },
     { title: "Lowercase", checked: true },
@@ -15,9 +19,15 @@ function App() {
       <div className="charLength">
         <span>
           <label>Character Length</label>
-          <label>4</label>
+          <label>{length}</label>
         </span>
-        <input type="range" min="4" max="20" />
+        <input
+          type="range"
+          min="4"
+          max="20"
+          value={length}
+          onChange={(e) => setLength(e.target.value)}
+        />
       </div>
       <div className="checkboxes">
         {checkBoxData.map((checkbox, index) => {
