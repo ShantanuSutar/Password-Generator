@@ -3,12 +3,19 @@ import { useState } from "react";
 function App() {
   const [length, setLength] = useState(6);
 
-  const checkBoxData = [
+  const [checkBoxData, setCheckBoxData] = useState([
     { title: "Uppercase", checked: true },
     { title: "Lowercase", checked: true },
-    { title: "Number", checked: true },
-    { title: "Symbol", checked: true },
-  ];
+    { title: "Number", checked: false },
+    { title: "Symbol", checked: false },
+  ]);
+
+  function handleChangeCheckbox(index) {
+    const updatedCheckBoxData = [...checkBoxData];
+    updatedCheckBoxData[index].checked = !updatedCheckBoxData[index].checked;
+    setCheckBoxData(updatedCheckBoxData);
+    console.log(checkBoxData);
+  }
 
   return (
     <section className="container">
@@ -33,7 +40,11 @@ function App() {
         {checkBoxData.map((checkbox, index) => {
           return (
             <div key={index}>
-              <input type="checkbox" checked={checkbox.checked} />
+              <input
+                type="checkbox"
+                checked={checkbox.checked}
+                onChange={() => handleChangeCheckbox(index)}
+              />
               <label>{checkbox.title}</label>
             </div>
           );
