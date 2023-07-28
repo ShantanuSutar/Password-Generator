@@ -74,7 +74,7 @@ function App() {
       {error ? (
         <div className="error">{error}</div>
       ) : (
-        <StrengthChecker password={password} />
+        <StrengthChecker password={password} checkBoxData={checkBoxData} />
       )}
       <Button
         customClass="generateBtn"
