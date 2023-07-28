@@ -40,7 +40,7 @@ function App() {
         <header className="header">
           <div className="title">{password}</div>
           <button className="copyBtn" onClick={handleCopy}>
-            {copied ? "Copied" : "Copy"}
+            {copied ? "Copied !" : "Copy"}
           </button>
         </header>
       )}

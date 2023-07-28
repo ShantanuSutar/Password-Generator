@@ -5,7 +5,7 @@
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #c5c5c5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,6 +66,7 @@ body {
   justify-content: space-between;
   padding: 15px 20px;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .charLength input {
@@ -145,6 +146,45 @@ body {
 
 @media only screen and (max-width: 600px) {
   .container {
-    transform: scale(0.7);
+    transform: scale(0.8);
+    right: 0%;
+    bottom: 0%;
+    /* width: 80%; */
+    scroll-behavior: smooth;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .header .copyBtn {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+
+  .checkboxes {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+
+  .checkboxes div {
+    font-size: 20px;
+    width: 100%;
+    /* font-weight: 700; */
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 50%;
+    /* font-size: larger; */
+  }
+
+  .checkboxes div label {
+    font-size: 22px;
+  }
+
+  .generateBtn {
+    font-size: 22px;
   }
 }
