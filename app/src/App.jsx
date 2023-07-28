@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useGeneratePassword from "./hooks/useGeneratePassword";
+import StrengthChecker from "./components/StrengthChecker";
 
 function App() {
   const [length, setLength] = useState(6);
@@ -70,7 +71,11 @@ function App() {
           );
         })}
       </div>
-      {error && <div className="error">{error}</div>}
+      {error ? (
+        <div className="error">{error}</div>
+      ) : (
+        <StrengthChecker password={password} />
+      )}
       <button
         className="generateBtn"
         onClick={() => generatePassword(checkBoxData, length)}
