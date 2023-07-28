@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useGeneratePassword from "./hooks/useGeneratePassword";
 
 function App() {
   const [length, setLength] = useState(6);
@@ -10,6 +11,10 @@ function App() {
     { title: "Symbol", checked: false },
   ]);
 
+  const { password, error, generatePassword } = useGeneratePassword();
+
+  // console.log(password);
+
   function handleChangeCheckbox(index) {
     const updatedCheckBoxData = [...checkBoxData];
     updatedCheckBoxData[index].checked = !updatedCheckBoxData[index].checked;
@@ -19,10 +24,12 @@ function App() {
 
   return (
     <section className="container">
-      <header className="header">
-        <div className="title">KHUHjjioasfd$@</div>
-        <button className="copyBtn">Copy</button>
-      </header>
+      {password && (
+        <header className="header">
+          <div className="title">{password}</div>
+          <button className="copyBtn">Copy</button>
+        </header>
+      )}
       <div className="charLength">
         <span>
           <label>Character Length</label>
