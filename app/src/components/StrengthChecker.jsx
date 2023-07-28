@@ -7,7 +7,7 @@ const StrengthChecker = ({ password }) => {
     if (passwordLength < 1) return "";
     else if (passwordLength < 6) return "Very Weak 😶";
     else if (passwordLength < 9) return "Weak 🤐";
-    else if (passwordLength < 12) return "Medium 😐";
+    else if (passwordLength < 12) return "Medium 🤔";
     else if (passwordLength < 15) return "Strong 😏";
     else return "Very Strong 😎";
   };

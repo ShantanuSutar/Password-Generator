@@ -2,13 +2,14 @@ import { useState } from "react";
 import useGeneratePassword from "./hooks/useGeneratePassword";
 import StrengthChecker from "./components/StrengthChecker";
 import Checkbox from "./components/Checkbox";
+import Button from "./components/Button";
 
 function App() {
   const [length, setLength] = useState(6);
 
   const [checkBoxData, setCheckBoxData] = useState([
-    { title: "Uppercase", checked: true },
-    { title: "Lowercase", checked: true },
+    { title: "Uppercase", checked: false },
+    { title: "Lowercase", checked: false },
     { title: "Number", checked: false },
     { title: "Symbol", checked: false },
   ]);
@@ -40,9 +41,9 @@ function App() {
       {password && (
         <header className="header">
           <div className="title">{password}</div>
-          <button className="copyBtn" onClick={handleCopy}>
+          <Button customClass="copyBtn" onClick={handleCopy}>
             {copied ? "Copied !" : "Copy"}
-          </button>
+          </Button>
         </header>
       )}
       <div className="charLength">
@@ -75,12 +76,12 @@ function App() {
       ) : (
         <StrengthChecker password={password} />
       )}
-      <button
-        className="generateBtn"
+      <Button
+        customClass="generateBtn"
         onClick={() => generatePassword(checkBoxData, length)}
       >
         Generate Password
-      </button>
+      </Button>
     </section>
   );
 }
