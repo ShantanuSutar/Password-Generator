@@ -13,6 +13,8 @@ function App() {
 
   const { password, error, generatePassword } = useGeneratePassword();
 
+  const [copied, setCopied] = useState(false);
+
   // console.log(password);
 
   function handleChangeCheckbox(index) {
@@ -22,12 +24,23 @@ function App() {
     console.log(checkBoxData);
   }
 
+  function handleCopy() {
+    navigator.clipboard.writeText(password);
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+  }
+
   return (
     <section className="container">
       {password && (
         <header className="header">
           <div className="title">{password}</div>
-          <button className="copyBtn">Copy</button>
+          <button className="copyBtn" onClick={handleCopy}>
+            {copied ? "Copied" : "Copy"}
+          </button>
         </header>
       )}
       <div className="charLength">
