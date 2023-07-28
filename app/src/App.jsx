@@ -57,7 +57,12 @@ function App() {
           );
         })}
       </div>
-      <button className="generateBtn">Generate Password</button>
+      <button
+        className="generateBtn"
+        onClick={() => generatePassword(checkBoxData, length)}
+      >
+        Generate Password
+      </button>
     </section>
   );
 }
